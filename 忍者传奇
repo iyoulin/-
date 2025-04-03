@@ -1,0 +1,138 @@
+local redzlib = loadstring(game:HttpGet('https://raw.githubusercontent.com/iyoulin/iyoulin/refs/heads/main/redzui'))()
+
+local Window = redzlib:MakeWindow({
+  Title = "iyoulin",
+  SubTitle = " ",
+  SaveFolder = "Redz Config"
+})
+
+print("反挂机")
+Start = tick()
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
+
+Window:AddMinimizeButton({
+  Button = { Image = redzlib:GetIcon("czl"), BackgroundTransparency = 0,Size = UDim2.fromOffset(60, 60), },
+  Corner = { CornerRadius = UDim.new(0, 10) }
+})
+
+local Tab = Window:MakeTab({"1", "cool"})
+
+_G.qqq = true
+
+function qqq()
+	while _G.qqq == true do
+	wait()
+	game:GetService("ReplicatedStorage").coinsFrame:Destroy()
+	end
+end	
+
+Tab:AddToggle({
+  Name = "删除金币",  
+  Default = false,
+  Callback = function(Value)
+    _G.qqq = Value
+        qqq()
+  end
+})
+
+_G.q = true
+
+function q()
+	while _G.q == true do
+	wait()
+	local args = {
+    [1] = "sellPet",
+    [2] = game:GetService("Players").LocalPlayer.petsFolder.Basic:FindFirstChild("Red Kitty")
+}
+
+game:GetService("ReplicatedStorage").rEvents.sellPetEvent:FireServer(unpack(args))
+
+	end
+end	
+
+Tab:AddToggle({
+  Name = "自动出售（0）",  
+  Default = false,
+  Callback = function(Value)
+    _G.q = Value
+        q()
+  end
+})
+
+_G.qq = true
+
+function qq()
+	while _G.qq == true do
+	wait(0.1)
+	local args = {
+    [1] = "sellPet",
+    [2] = game:GetService("Players").LocalPlayer.petsFolder.Basic:FindFirstChild("Red Kitty")
+}
+
+game:GetService("ReplicatedStorage").rEvents.sellPetEvent:FireServer(unpack(args))
+
+	end
+end	
+
+Tab:AddToggle({
+  Name = "自动出售（0.1）",  
+  Default = false,
+  Callback = function(Value)
+    _G.qq = Value
+        qq()
+  end
+})
+
+_G.qqe = true
+
+function qqe()
+	while _G.qqe == true do
+	wait(0.01)
+	local args = {
+    [1] = "sellPet",
+    [2] = game:GetService("Players").LocalPlayer.petsFolder.Basic:FindFirstChild("Red Kitty")
+}
+
+game:GetService("ReplicatedStorage").rEvents.sellPetEvent:FireServer(unpack(args))
+
+
+	end
+end	
+
+Tab:AddToggle({
+  Name = "自动出售（0.01）",  
+  Default = false,
+  Callback = function(Value)
+    _G.qqe = Value
+        qqe()
+  end
+})
+
+_G.qe = true
+
+function qe()
+	while _G.qe == true do
+	wait(0.001)
+	local args = {
+    [1] = "sellPet",
+    [2] = game:GetService("Players").LocalPlayer.petsFolder.Basic:FindFirstChild("Red Kitty")
+}
+
+game:GetService("ReplicatedStorage").rEvents.sellPetEvent:FireServer(unpack(args))
+
+	end
+end	
+
+Tab:AddToggle({
+  Name = "自动出售（0.001）",  
+  Default = false,
+  Callback = function(Value)
+    _G.qe = Value
+        qe()
+  end
+})
